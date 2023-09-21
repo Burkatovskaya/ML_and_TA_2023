@@ -1,0 +1,34 @@
+#include <bitset>
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+char a = 58;
+bitset<8> x(a);
+cout << x << endl;
+unsigned short c = 31467, d = 1275;
+bitset<16> y(c);
+cout << "     c = " << y << endl;
+y =  bitset<16>(d);
+cout << "     d = " << y << endl;
+//operations
+y = bitset<16> (c & d);
+cout << " c & d = " << y << endl;
+y = bitset<16> (c | d);
+cout << " c | d = " << y << endl;
+y = bitset<16> (c ^ d);
+cout << " c ^ d = " << y << endl;
+y = bitset<16> (~ c);
+cout << "    ~c = " << y << endl;
+// check all bites of c
+unsigned short mask = 1 << 15;
+cout << mask << " " << bitset<16>(mask) << endl;
+for( ; mask; mask >>= 1)
+  if (mask & c)
+    cout << '1';
+  else
+    cout << '0';
+cout << endl;
+}
